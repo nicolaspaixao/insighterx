@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Insighter X — Em breve</title>
+  <style>
+    :root {
+      --bg0: #0b0f17;
+      --bg1: #0e1624;
+      --primary: #ffd34d;
+      --accent: #4da3ff;
+      --muted: #8aa0b5;
+    }
+
+    html, body { height: 100%; margin: 0; }
+    body {
+      background: radial-gradient(1200px 800px at 70% 20%, #141c2b 0%, var(--bg0) 60%) no-repeat,
+                  linear-gradient(180deg, var(--bg1), var(--bg0));
+      color: #e6edf6;
+      font-family: system-ui,-apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      overflow: hidden;
+    }
+
+    #net {
+      position: fixed; inset: 0; width: 100vw; height: 100vh; display: block;
+    }
+
+    .hero {
+      position: relative; z-index: 2; height: 100vh; display: grid; place-items: center;
+      text-align: center; padding: 0 6vw;
+    }
+    .title {
+      font-weight: 800; letter-spacing: .02em; line-height: 1.05;
+      font-size: clamp(28px, 6vw, 58px);
+      text-transform: uppercase;
+      text-shadow: 0 6px 24px rgba(0,0,0,.55);
+    }
+    .title .accent { color: var(--primary); }
+    .subtitle { margin-top: 10px; font-size: clamp(14px, 2.3vw, 18px); color: var(--muted); }
+
+    .badge { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #90a4b8; opacity: .7 }
+
+    .vignette { position: fixed; inset: 0; pointer-events: none; background:
+        radial-gradient(60vmax 60vmax at 50% 50%, rgba(0,0,0,0) 45%, rgba(0,0,0,.25) 100%);
+      z-index: 1; }
+  </style>
+</head>
+<body>
+  <canvas id="net"></canvas>
+
+  <div class="vignette"></div>
+
+  <main class="hero" role="main">
+    <h1 class="title">
+      <span class="accent">Em breve</span> nosso lançamento
+    </h1>
+    <p class="subtitle">Uma nova experiência de tecnologia para sua empresa.</p>
+  </main>
+
+  <div class="badge">Insighter X</div>
+
+  <script>
+    const canvas = document.getElementById('net');
+    const ctx = canvas.getContext('2d');
+
+    let w, h, dpr, particles;
+    const N = 120;
+    const MAX_SPEED = 0.25;
+    const LINK_DIST = 120;
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.width = Math.floor(innerWidth * dpr);
+      h = canvas.height = Math.floor(innerHeight * dpr);
+      canvas.style.width = innerWidth + 'px';
+      canvas.style.height = innerHeight + 'px';
+    }
+
+    function rand(a, b){ return a + Math.random() * (b - a); }
+
+    function init() {
+      resize();
+      particles = new Array(N).fill().map(() => ({
+        x: rand(0, w),
+        y: rand(0, h),
+        vx: rand(-MAX_SPEED, MAX_SPEED),
+        vy: rand(-MAX_SPEED, MAX_SPEED),
+        r: rand(1.2, 2.4)
+      }));
+      loop();
+    }
+
+    function step(p) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+    }
+
+    function draw() {
+      ctx.clearRect(0,0,w,h);
+      for (let i=0;i<N;i++){
+        for (let j=i+1;j<N;j++){
+          const a = particles[i], b = particles[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const dist = Math.hypot(dx,dy);
+          if (dist < LINK_DIST * dpr) {
+            const t = 1 - dist / (LINK_DIST * dpr);
+            ctx.globalAlpha = t * 0.55;
+            const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+            grad.addColorStop(0, 'rgba(77,163,255,.85)');
+            grad.addColorStop(1, 'rgba(255,211,77,.85)');
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 1 * dpr;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+      ctx.globalAlpha = 1;
+      for (const p of particles){
+        ctx.fillStyle = 'rgba(255,255,255,.9)';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r * dpr, 0, Math.PI*2);
+        ctx.fill();
+      }
+    }
+
+    function loop(){
+      for (const p of particles) step(p);
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    addEventListener('resize', resize);
+    init();
+  </script>
+</body>
+</html>
