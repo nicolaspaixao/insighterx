@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Insight X – Consultoria de Dados</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="simbolo.png" type="image/png"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo">
+      <img src="logo.png" alt="Insight X"/>
+    </div>
+    <nav>
+      <ul id="menu">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#treinamentos">Treinamentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <button class="menu-toggle" aria-label="Abrir menu" onclick="toggleMenu()">☰</button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Transforme <span class="highlight">dados</span> em decisões<br/>e <span class="highlight">tarefas</span> em automações.</h1>
+    </div>
+  </section>
+
+  <!-- NOSSOS SERVIÇOS -->
+  <section id="servicos" class="bloco bloco-servicos">
+    <div class="container-coluna">
+      <h2>Nossos serviços</h2>
+      <div class="servicos-grid">
+        <div class="card-servico">
+          <div class="icon">
+            <img src="Icon robot.png" alt="Automatizações"/>
+          </div>
+          <h3>Automatizações</h3>
+          <ul>
+            <li>Automações para processos repetitivos</li>
+            <li>Coleta de dados de forma automatizada</li>
+            <li>Geração automática de relatórios e indicadores</li>
+          </ul>
+        </div>
+        <div class="card-servico">
+          <div class="icon">
+            <img src="Grafico.png" alt="Acompanhamento"/>
+          </div>
+          <h3>Acompanhamento</h3>
+          <ul>
+            <li>Acompanhamento de performance em tempo real</li>
+            <li>Controle total dos resultados</li>
+            <li>Indicadores que mostram oportunidades</li>
+          </ul>
+        </div>
+        <div class="card-servico">
+          <div class="icon">
+            <img src="Insight.png" alt="Inovações"/>
+          </div>
+          <h3>Inovações</h3>
+          <ul>
+            <li>IA aplicada para mais eficiência</li>
+            <li>Implantação de MIS e cultura data-driven</li>
+            <li>Transformação digital guiada por dados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUEM SOMOS -->
+  <section id="sobre" class="bloco bloco-azul">
+    <div class="container">
+      <h2 class="titulo-secao">Quem somos nós</h2>
+
+      <div class="sobre-grid">
+        <div class="coluna-texto">
+          <p>A Insight X nasceu com um propósito claro: usar dados para simplificar a tomada de decisão dentro das empresas. Somos uma consultoria que une tecnologia, estratégia e visão de negócio para resolver problemas que travam o dia a dia e impedem o crescimento.</p>
+          <p>Nosso trabalho vai muito além de relatórios, automações e inteligência artificial. Atuamos nos processos e cenários para entregar soluções que economizam tempo e mostram com clareza onde estão as oportunidades através de dados.</p>
+          <p>E entre tudo o que desenvolvemos, temos um projeto que é o coração da Insight X: criamos uma inteligência artificial que entende perguntas, busca os dados certos e entrega respostas estratégicas para seu negócio, como um consultor de dados disponível para sua empresa.</p>
+        </div>
+        <div class="coluna-imagem">
+          <img src="data-science.jpg" alt="Data Science"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TREINAMENTOS -->
+  <section id="treinamentos" class="bloco bloco-azul">
+    <div class="container-coluna">
+      <h2>Nossos treinamentos</h2>
+      <div class="cursos-cards">
+        <div class="card-curso">
+          <img src="DAX.png" alt="Curso DAX Avançado"/>
+          <a class="btn-saiba-mais">EM BREVE</a>
+        </div>
+        <div class="card-curso">
+          <img src="Excel.png" alt="Curso Excel Avançado"/>
+          <a class="btn-saiba-mais">EM BREVE</a>
+        </div>
+        <div class="card-curso">
+          <img src="Linguagem M.png" alt="Curso Linguagem M"/>
+          <a class="btn-saiba-mais">EM BREVE</a>
+        </div>
+        <div class="card-curso">
+          <img src="SQL.png" alt="Curso SQL"/>
+          <a class="btn-saiba-mais">EM BREVE</a>
+        </div>
+      </div>
+    </div>
+    <p class="cta-treinamentos"></p>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="bloco bloco-escuro">
+    <div class="container-contato">
+      <h2>Entre em contato</h2>
+
+      <!-- FORMULÁRIO FUNCIONANDO NO GITHUB PAGES (FORMSPREE) -->
+      <form id="contactForm" class="form-contato" action="https://formspree.io/f/mzddzrye" method="POST">
+        <input type="text" name="nome" placeholder="Seu nome" required/>
+        <input type="email" name="email" placeholder="Seu e-mail" required/>
+        <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+        <button type="submit">Enviar mensagem</button>
+
+        <p id="formStatus" style="display:none; margin-top:12px;"></p>
+      </form>
+
+      <div class="redes-sociais">
+        <a href="https://www.instagram.com/insighterx/" target="_blank" rel="noopener">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" alt="Instagram"/>
+        </a>
+        <a href="https://wa.me/5516994477434?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" alt="WhatsApp"/>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('show');
+    }
+
+    // Envio do formulário via fetch (não recarrega a página)
+    const form = document.getElementById("contactForm");
+    const statusEl = document.getElementById("formStatus");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      statusEl.style.display = "block";
+      statusEl.textContent = "Enviando...";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" }
+        });
+
+        if (response.ok) {
+          form.reset();
+          statusEl.textContent = "Mensagem enviada com sucesso.";
+        } else {
+          statusEl.textContent = "Não foi possível enviar. Tente novamente.";
+        }
+      } catch (err) {
+        statusEl.textContent = "Erro de conexão. Tente novamente.";
+      }
+    });
+  </script>
+</body>
+</html>

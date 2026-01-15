@@ -1,0 +1,106 @@
+/* ================================================== */
+/*                STYLESHEET COMPLETO                 */
+/* ================================================== */
+
+/* ===== Reset ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f0f0f0; color: #333; line-height: 1.6; }
+
+/* ===== Header ===== */
+.site-header {
+  position: fixed; top: 0; width: 100%; background: #fff; padding: 0 5%;
+  display: flex; justify-content: space-between; align-items: center; height: 80px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 1000;
+}
+.logo img { height: 50px; }
+nav ul { list-style: none; display: flex; gap: 30px; }
+nav ul li a { text-decoration: none; color: #020a3c; font-weight: bold; transition: color 0.2s; }
+nav ul li a:hover { color: #ffaa00; }
+.menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+
+/* ===== Hero ===== */
+.hero {
+  position: relative; margin-top: 80px; background: url('Imagem.png') center/cover no-repeat;
+  height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 5%;
+}
+.hero::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.5); z-index: 1; }
+.hero-text { position: relative; z-index: 2; }
+.hero-text h1 { font-size: 3.5rem; font-weight: bold; color: #fff; line-height: 1.2; }
+.highlight { color: #ffaa00; }
+
+/* ===== Blocos ===== */
+.bloco { padding: 80px 5%; }
+.bloco-azul { background: #f5f5f5; }
+.bloco-escuro { background: #222; color: #fff; }
+
+/* ===== Serviços ===== */
+.bloco-servicos { background: #f9f9f9; }
+.bloco-servicos .container-coluna { max-width: 1200px; margin: 0 auto; text-align: center; }
+.bloco-servicos h2 { font-size: 2.5rem; color: #020a3c; margin-bottom: 40px; text-align: center; }
+.servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 32px; }
+.card-servico {
+  background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 2rem; text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card-servico:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.card-servico .icon { width: 80px; height: 80px; margin: 0 auto 1rem; }
+.card-servico .icon img { width: 100%; height: auto; }
+.card-servico h3 { font-size: 1.25rem; margin-bottom: 1rem; color: #020a3c; }
+.card-servico ul { list-style: none; padding: 0; margin: 0; text-align: left; }
+.card-servico ul li { position: relative; padding-left: 1.2rem; margin-bottom: 0.75rem; color: #444; }
+.card-servico ul li::before { content: ""; position: absolute; left: 0; top: 0.5rem; width: 6px; height: 6px; background: #ffaa00; border-radius: 50%; }
+
+/* ===== Quem Somos ===== */
+#sobre .container { max-width: 1200px; margin: 0 auto; }
+.titulo-secao {
+  font-size: 2.5rem; color: #020a3c; margin-bottom: 40px; text-align: center; width: 100%;
+}
+.sobre-grid {               /* Apenas o texto e a imagem ficam lado a lado */
+  display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px;
+}
+.coluna-texto { flex: 1 1 520px; }
+.coluna-texto p { margin-bottom: 1rem; }
+.coluna-imagem { flex: 1 1 490px; }
+.coluna-imagem img { width: 100%; border-radius: 8px; display: block; }
+
+/* ===== Treinamentos ===== */
+#treinamentos .container-coluna { max-width: 1200px; margin: 0 auto; text-align: center; }
+#treinamentos h2 { font-size: 2.5rem; color: #020a3c; margin-bottom: 40px; text-align: center; }
+.cursos-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+.card-curso { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 250px; transition: transform 0.3s; }
+.card-curso:hover { transform: translateY(-5px); }
+.card-curso img { width: 100%; object-fit: cover; }
+.btn-saiba-mais {
+  display: inline-block; margin: 1rem auto; padding: 0.75rem 1.5rem; background: #ffaa00; color: #020a3c;
+  border: none; border-radius: 4px; font-weight: bold; text-decoration: none; transition: background 0.2s;
+}
+.btn-saiba-mais:hover { background: #e69500; }
+
+/* ===== Contato ===== */
+#contato .container-contato { max-width: 600px; margin: 0 auto; text-align: center; }
+#contato h2 { font-size: 2rem; color: #ffaa00; margin-bottom: 1rem; text-align: center; }
+.form-contato { display: flex; flex-direction: column; gap: 15px; margin-bottom: 2rem; }
+.form-contato input, .form-contato textarea { width: 100%; padding: 0.75rem; border: none; border-radius: 4px; }
+.form-contato button { padding: 0.75rem; background: #ffaa00; color: #020a3c; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+.form-contato button:hover { background: #e69500; }
+.redes-sociais { display: flex; justify-content: center; gap: 20px; }
+.redes-sociais img { width: 32px; height: 32px; filter: invert(100%); transition: transform 0.2s; }
+.redes-sociais img:hover { transform: scale(1.1); }
+
+
+.cta-treinamentos { text-align:center; margin-top:12px; font-size:1.05rem; }
+.cta-treinamentos a { font-weight:600; text-decoration:underline; }
+
+/* ===== Responsivo ===== */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav ul {
+    display: none; flex-direction: column; background: #fff; position: absolute;
+    top: 80px; left: 0; width: 100%; padding: 1rem 0;
+  }
+  nav ul.show { display: flex; }
+  .hero-text h1 { font-size: 2.5rem; }
+  .sobre-grid { flex-direction: column; }   /* empilha texto e imagem no mobile */
+  .servicos-grid { grid-template-columns: 1fr; }
+  .cursos-cards { flex-direction: column; }
+}
