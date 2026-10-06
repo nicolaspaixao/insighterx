@@ -13,6 +13,15 @@ menu.addEventListener("click", (event) => {
   menu.classList.remove("open");
 });
 
+document.querySelectorAll('a[href="#topo"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  });
+});
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
