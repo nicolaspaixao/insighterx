@@ -103,12 +103,23 @@ nav a:not(.nav-cta):hover::after { transform: scaleX(1); transform-origin: left;
 .section h2, .intelligence-band h2, .contact h2 { margin: 0; color: var(--ink); font-size: clamp(38px, 4vw, 56px); font-weight: 560; letter-spacing: -.048em; line-height: 1.04; }
 .section-heading p { margin: 0; color: var(--text); font-size: 14px; line-height: 1.8; }
 
-.solution-grid { border-top: 1px solid var(--line); }
-.solution-card { min-height: 0; margin-inline: -16px; padding: 34px 16px; display: grid; grid-template-columns: 34px 58px 215px minmax(220px, 1fr) 235px 116px; align-items: start; gap: 18px; border-bottom: 1px solid var(--line); border-radius: 12px; transition: border-color .25s, background .25s, transform .25s; }
-.solution-card:hover { border-color: #c8d5d7; background: #f4f9f9; transform: translateY(-2px); }
-.card-number { padding-top: 7px; color: #8795a3; font-size: 11px; font-weight: 700; }
-.solution-icon { width: 46px; height: 46px; margin: 0; display: flex; align-items: center; justify-content: center; color: var(--teal-dark); background: #eaf6f6; border-radius: 10px; transition: color .25s, background .25s, transform .25s; }
-.solution-card:hover .solution-icon { color: #fff; background: var(--teal-dark); transform: scale(1.05); }
+.solution-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.solution-card { position: relative; min-height: 422px; padding: 31px 30px 28px; display: flex; flex-direction: column; overflow: hidden; background: #fbfcfc; border: 1px solid var(--line); border-radius: 18px; transition: border-color .25s, background .25s, box-shadow .25s, transform .25s; }
+.solution-card::before { position: absolute; top: 0; right: 30px; left: 30px; height: 3px; content: ""; background: linear-gradient(90deg, var(--teal), #76ced0 65%, transparent); transform: scaleX(.32); transform-origin: left; transition: transform .35s ease; }
+.solution-card:nth-child(2) { background: #fafbfc; }
+.solution-card:nth-child(2)::before { background: linear-gradient(90deg, #4faec2, #8dcbd5 65%, transparent); }
+.solution-card:nth-child(3) { background: #fbfafc; }
+.solution-card:nth-child(3)::before { background: linear-gradient(90deg, var(--violet), #a98bbd 65%, transparent); }
+.solution-card:hover { background: #fff; border-color: #c9d9db; box-shadow: 0 16px 32px rgba(20, 36, 57, .08); transform: translateY(-5px); }
+.solution-card:hover::before { transform: scaleX(1); }
+.solution-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 31px; }
+.card-number { color: #7d8b99; font-size: 12px; font-weight: 700; letter-spacing: .05em; }
+.solution-icon { width: 52px; height: 52px; margin: 0; display: flex; align-items: center; justify-content: center; color: var(--teal-dark); background: #e7f4f4; border-radius: 15px; transition: color .25s, background .25s, transform .25s; }
+.solution-card:nth-child(2) .solution-icon { color: #397f99; background: #eaf4f8; }
+.solution-card:nth-child(3) .solution-icon { color: #73558f; background: #f0ebf5; }
+.solution-card:hover .solution-icon { color: #fff; background: var(--teal-dark); transform: rotate(-4deg) scale(1.05); }
+.solution-card:nth-child(2):hover .solution-icon { background: #397f99; }
+.solution-card:nth-child(3):hover .solution-icon { background: var(--violet); }
 .solution-icon.automation { gap: 3px; }
 .solution-icon.automation i { width: 4px; border-radius: 2px; background: currentColor; }
 .solution-icon.automation i:nth-child(1) { height: 12px; }
@@ -121,13 +132,19 @@ nav a:not(.nav-cta):hover::after { transform: scaleX(1); transform-origin: left;
 .solution-icon.analytics i:nth-child(3) { height: 23px; }
 .solution-icon.analytics i:nth-child(4) { height: 14px; }
 .solution-icon.intelligence { font-family: var(--serif); font-size: 22px; }
-.solution-card h3 { margin: 5px 0 0; color: var(--ink); font-size: 18px; font-weight: 650; line-height: 1.25; }
-.solution-card p { margin: 3px 0 0; color: #59677c; font-size: 14px; line-height: 1.65; }
-.solution-card ul { margin: 0; padding: 0; list-style: none; }
-.solution-card li { position: relative; margin: 7px 0; padding-left: 13px; color: #4f5e73; font-size: 12px; line-height: 1.45; }
-.solution-card li::before { position: absolute; top: .58em; left: 0; width: 3px; height: 3px; content: ""; background: var(--teal); border-radius: 50%; }
-.solution-card a { margin-top: 7px; color: var(--ink); font-size: 12px; font-weight: 700; text-align: right; text-decoration: none; }
-.solution-card a span { margin-left: 8px; color: var(--teal-dark); }
+.solution-kicker { color: var(--teal-dark); font-size: 13px; font-weight: 700; }
+.solution-card:nth-child(2) .solution-kicker { color: #397f99; }
+.solution-card:nth-child(3) .solution-kicker { color: #73558f; }
+.solution-card h3 { margin: 13px 0 0; color: var(--ink); font-size: clamp(22px, 2vw, 27px); font-weight: 570; letter-spacing: -.034em; line-height: 1.12; }
+.solution-card p { margin: 19px 0 0; color: #57657a; font-size: 14px; line-height: 1.68; }
+.solution-outcome { margin-top: auto; padding-top: 24px; border-top: 1px solid #e1e7e9; }
+.solution-outcome span, .solution-outcome strong { display: block; }
+.solution-outcome span { margin-bottom: 7px; color: #7a8797; font-size: 12px; font-weight: 650; }
+.solution-outcome strong { color: #263248; font-size: 14px; font-weight: 650; line-height: 1.45; }
+.solution-card a { margin-top: 22px; display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-size: 13px; font-weight: 700; text-decoration: none; }
+.solution-card a span { color: var(--teal-dark); font-size: 16px; line-height: 1; transition: transform .2s ease; }
+.solution-card:nth-child(3) a span { color: var(--violet); }
+.solution-card a:hover span { transform: translateX(4px); }
 
 .intelligence-band { padding: 122px max(28px, calc((100vw - var(--max)) / 2)); display: grid; grid-template-columns: .82fr 1.18fr; gap: 120px; background: var(--mist); border-top: 1px solid #e0e5e5; border-bottom: 1px solid #e0e5e5; }
 .intelligence-copy p { max-width: 485px; margin: 27px 0 34px; color: #596579; font-size: 14px; line-height: 1.78; }
@@ -208,9 +225,7 @@ footer { padding: 48px max(28px, calc((100vw - var(--max)) / 2)) 22px; backgroun
   nav { gap: 20px; }
   .hero h1 { font-size: 64px; }
   .section-heading { gap: 60px; }
-  .solution-card { grid-template-columns: 30px 52px 190px 1fr; }
-  .solution-card ul { grid-column: 3 / 5; }
-  .solution-card a { grid-column: 3 / 5; text-align: left; }
+  .solution-card { min-height: 440px; padding: 28px 24px 25px; }
   .intelligence-band, .contact { gap: 70px; }
   .about, .faq { gap: 70px; }
   .learning-panel { gap: 60px; }
@@ -232,8 +247,8 @@ footer { padding: 48px max(28px, calc((100vw - var(--max)) / 2)) 22px; backgroun
   .section { width: calc(100% - 64px); padding: 100px 0; }
   .section-heading, .intelligence-band, .about, .faq, .contact, .learning-panel { grid-template-columns: 1fr; }
   .section-heading { gap: 24px; }
-  .solution-card { grid-template-columns: 32px 48px 1fr; gap: 14px; }
-  .solution-card p, .solution-card ul, .solution-card a { grid-column: 3 / 4; }
+  .solution-grid { grid-template-columns: 1fr; gap: 14px; }
+  .solution-card { min-height: 0; padding: 30px; }
   .intelligence-band, .contact { padding: 100px 32px; gap: 56px; }
   .about { gap: 65px; }
   .about-mark { order: 2; width: calc(100% - 22px); }
@@ -261,10 +276,13 @@ footer { padding: 48px max(28px, calc((100vw - var(--max)) / 2)) 22px; backgroun
   .trust-strip span { width: calc(50% - 8px); line-height: 1.45; }
   .section { width: calc(100% - 40px); padding: 82px 0; }
   .section h2, .intelligence-band h2, .contact h2 { font-size: 36px; }
-  .solution-card { padding: 28px 0; grid-template-columns: 25px 42px 1fr; gap: 10px; }
-  .solution-icon { width: 36px; height: 36px; }
-  .solution-card h3 { font-size: 16px; }
-  .solution-card p, .solution-card ul, .solution-card a { grid-column: 2 / 4; margin-left: 52px; }
+  .solution-card { padding: 25px 22px; border-radius: 15px; }
+  .solution-card::before { right: 22px; left: 22px; }
+  .solution-card-top { margin-bottom: 25px; }
+  .solution-icon { width: 46px; height: 46px; border-radius: 13px; }
+  .solution-card h3 { font-size: 24px; }
+  .solution-card p { margin-top: 16px; font-size: 14px; }
+  .solution-outcome { margin-top: 27px; padding-top: 19px; }
   .intelligence-band, .contact { padding: 82px 20px; }
   .about { gap: 50px; }
   .about-values { grid-template-columns: 1fr; }
